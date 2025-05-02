@@ -13,16 +13,21 @@
     "client:dev": "cd client && npm run dev",
     "build": "cd server && npm run build",
     "seed": "cd server && npm run seed",
-    "render-build": "npm install && npm run build"
+    "render-build": "npm install && npm run build",
+    "test": "cypress run",
+    "test:open": "cypress open",
+    "test:component": "cypress run --component",
+    "test:e2e": "cypress run --e2e"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@cypress/vite-dev-server": "^6.0.3",
     "@types/react": "^18.3.3",
     "@vitejs/plugin-react": "^4.3.1",
     "concurrently": "^8.2.2",
-    "cypress": "^13.13.1",
+    "cypress": "^14.3.2",
     "nodemon": "^3.1.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

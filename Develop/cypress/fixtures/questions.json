@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "question": "What is React?",
+    "answers": [
+      { "text": "A JavaScript library for building user interfaces", "isCorrect": true },
+      { "text": "A programming language", "isCorrect": false },
+      { "text": "A database management system", "isCorrect": false },
+      { "text": "An operating system", "isCorrect": false }
+    ]
+  },
+  {
+    "id": "2",
+    "question": "Which hook is used for state in React?",
+    "answers": [
+      { "text": "useEffect", "isCorrect": false },
+      { "text": "useState", "isCorrect": true },
+      { "text": "useContext", "isCorrect": false },
+      { "text": "useReducer", "isCorrect": false }
+    ]
+  },
+  {
+    "id": "3",
+    "question": "What is TypeScript?",
+    "answers": [
+      { "text": "A superset of JavaScript that adds static types", "isCorrect": true },
+      { "text": "A JavaScript framework", "isCorrect": false },
+      { "text": "A testing library", "isCorrect": false },
+      { "text": "A database query language", "isCorrect": false }
+    ]
+  }
+]
