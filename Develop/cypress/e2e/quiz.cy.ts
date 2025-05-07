@@ -26,26 +26,30 @@ describe('Quiz Application', () => {
     cy.get('.btn-primary').should('be.visible');
     
     // Get the text of the first question
-    cy.get('.card h2').invoke('text').as('firstQuestion');
-    
-    // Click the first answer
-    cy.get('.btn-primary').first().click();
-    
-    // Give the UI more time to update with the next question
-    cy.wait(1000);
-    
-    // The question should change
-    cy.get('.card h2').should('be.visible').invoke('text').then((secondQuestion) => {
-      // Ensure secondQuestion has content before comparison
-      expect(secondQuestion).to.be.a('string').and.not.to.be.empty;
+    cy.get('.card h2').invoke('text').then(firstQuestionText => {
+      // Store the first question text
+      cy.wrap(firstQuestionText).as('firstQuestion');
       
-      cy.get('@firstQuestion').then((firstQuestion) => {
-        // Additional logging for debugging
-        cy.log(`First question: "${firstQuestion}"`);
-        cy.log(`Second question: "${secondQuestion}"`);
+      // Ensure we have a valid question before proceeding
+      expect(firstQuestionText).to.be.a('string').and.not.to.be.empty;
+      
+      // Click the first answer using test id
+      cy.get('[data-testid="answer-0"]').should('be.visible').click();
+      
+      // Give the UI time to update with the next question
+      cy.wait(1000);
+      
+      // The question should change - get the second question
+      cy.get('.card h2').should('be.visible').invoke('text').then(secondQuestionText => {
+        // Log the questions for debugging
+        cy.log(`First question: "${firstQuestionText}"`);
+        cy.log(`Second question: "${secondQuestionText}"`);
         
-        // More robust comparison
-        expect(secondQuestion).to.not.equal(firstQuestion);
+        // Make sure the second question is valid
+        expect(secondQuestionText).to.be.a('string').and.not.to.be.empty;
+        
+        // The key assertion - questions should be different
+        expect(secondQuestionText).to.not.equal(firstQuestionText);
       });
     });
   });
@@ -63,7 +67,8 @@ describe('Quiz Application', () => {
           return;
         }
         
-        cy.get('.btn-primary').first().should('be.visible').click();
+        // Use data-testid instead of generic class selector
+        cy.get('[data-testid="answer-0"]').should('be.visible').click();
         cy.wait(300); // Give time for the next question to load
         
         // Check if quiz is completed
@@ -95,7 +100,8 @@ describe('Quiz Application', () => {
           return;
         }
         
-        cy.get('.btn-primary').first().should('be.visible').click();
+        // Use data-testid instead of generic class selector
+        cy.get('[data-testid="answer-0"]').should('be.visible').click();
         cy.wait(300); // Give time for the next question to load
         
         // Check if quiz is completed
