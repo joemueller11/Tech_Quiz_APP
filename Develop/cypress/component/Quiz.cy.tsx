@@ -1,4 +1,3 @@
-import React from 'react';
 import Quiz from '../../client/src/components/Quiz';
 import * as questionApi from '../../client/src/services/questionApi';
 
