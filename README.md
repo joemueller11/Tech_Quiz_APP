@@ -18,7 +18,7 @@ Cypress<br/>
 In the terminal<br/>
 npm run start:dev<br/>
 THEN<br/>
-npm run test
+npm run test<br/>
 Video link: https://drive.google.com/file/d/1tRdrSOVl99vpjdtOi7wjQD5UfMAHEADe/view?usp=drive_link<br/>
 ![Tech_quiz](https://github.com/user-attachments/assets/08523435-84a9-43c5-970e-c6c61cf81e29)<br/>
 ![Tech_quiz_terminal](https://github.com/user-attachments/assets/f2a63148-43ec-4d44-9ca1-a176384109c0)
