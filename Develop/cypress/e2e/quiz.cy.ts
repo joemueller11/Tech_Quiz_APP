@@ -11,8 +11,7 @@ describe('Quiz Application', () => {
   it('should start the quiz when clicking the Start Quiz button', () => {
     cy.contains('Start Quiz').click();
     
-    // There should be a question displayed after starting
-    // The exact question text will depend on your API, so we're checking for any question
+    
     cy.get('.card h2').should('exist');
     
     // Check that answer options are displayed
@@ -39,8 +38,7 @@ describe('Quiz Application', () => {
   it('should complete the quiz and show results', () => {
     cy.contains('Start Quiz').click();
     
-    // This is a simplified approach - in a real test, you might need to 
-    // know how many questions there are or use a different strategy
+   
     // Here we're clicking answers until we see the quiz completion screen
     cy.get('body').then($body => {
       function clickNextAnswer() {
